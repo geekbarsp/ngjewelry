@@ -23,6 +23,7 @@
 @media(min-width:1600px){.header{padding-left:7vw;padding-right:7vw}.hero-copy{left:10vw}.section{padding-left:8vw;padding-right:8vw}.product-grid{gap:42px 20px}.collection-grid{grid-template-rows:repeat(2,370px)}}
 .header.dark-top{color:#fff}.header.dark-top .header-icons i{background:#fff;color:#171717}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+.jewel-scene-shell{position:absolute;inset:0;contain:strict}
 
 /* Product detail experience */
 .product-page{background:#fbfaf7;color:var(--ink)}
