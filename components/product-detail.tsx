@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Box, CalendarDays, Check, ChevronDown, Gem, Heart, Menu, PackageCheck, Share2, ShieldCheck, Sparkles, X, ZoomIn } from "lucide-react";
+import { ArrowLeft, ArrowRight, Box, CalendarDays, Check, ChevronDown, Gem, Heart, Menu, MessageCircle, PackageCheck, Share2, ShieldCheck, Sparkles, X, ZoomIn } from "lucide-react";
 import { useMemo, useState } from "react";
 import { peso, type Product } from "@/data/products";
 
@@ -54,6 +54,7 @@ export default function ProductDetail({ product, related }: { product: Product; 
         <div className={`availability ${product.availability === "Sold" ? "sold" : ""}`}><i /><b>{product.availability}</b><span>·</span><span>{product.shipping}</span></div>
         <label className="size-picker">{product.sizes[0] === "One size" ? "Configuration" : "Select size"}<span><Link href="/guides/ring-size">Size guide</Link></span><div><select value={selectedSize} onChange={event => setSelectedSize(event.target.value)}>{product.sizes.map(size => <option key={size}>{size}</option>)}</select><ChevronDown /></div></label>
         <button className="btn dark product-primary" onClick={() => setNotice(isSubasta ? "Piece reserved for 30 minutes" : `${product.name} added to your bag`)}>{isSubasta ? "Reserve this piece" : "Add to bag"}<ArrowRight /></button>
+        <a className="product-detail-message" href="https://m.me/narciso.geronimo.jewels" target="_blank" rel="noreferrer" aria-label={`Message us about ${product.name}`}><MessageCircle /> Message us about this piece</a>
         <div className="product-actions"><button className={liked ? "liked" : ""} onClick={() => setLiked(!liked)}><Heart />{liked ? "Saved to wishlist" : "Add to wishlist"}</button><button onClick={share}><Share2 /> Share</button></div>
         {notice && <motion.p className="product-notice" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}><Check />{notice}</motion.p>}
         <div className="product-assurances"><span><ShieldCheck /><b>Authenticity guaranteed</b><small>Inspected and documented</small></span><span><PackageCheck /><b>Insured delivery</b><small>Tracked from our store to you</small></span><span><CalendarDays /><b>Personal guidance</b><small>Private consultation available</small></span></div>
