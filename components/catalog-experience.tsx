@@ -14,7 +14,7 @@ type Filters = {
 const emptyFilters: Filters = { categories: [], karats: [], metals: [], stones: [], shapes: [], sizes: [], availability: [], flags: [], maxPrice: 100000, minCarat: 0 };
 const groups = [
   ["Jewelry type", "categories", ["Rings", "Necklaces", "Earrings", "Bracelets", "Pendants", "Wedding", "Men"]],
-  ["Gold purity", "karats", ["14K", "18K"]],
+  ["Gold purity", "karats", ["18K"]],
   ["Metal color", "metals", ["Yellow Gold", "White Gold", "Rose Gold"]],
   ["Stone", "stones", ["Diamond", "Gemstone", "Pearl", "None"]],
   ["Stone shape", "shapes", ["Round", "Oval", "Princess", "Emerald", "Pear", "Cushion", "Marquise"]],

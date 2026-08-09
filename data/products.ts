@@ -16,7 +16,7 @@ export type Product = {
   video?: string;
   tag?: string;
   material: string;
-  karat: "14K" | "18K";
+  karat: "18K";
   metal: MetalColor;
   stoneType: StoneType;
   stone: string;
@@ -71,8 +71,8 @@ const stoneFor = (index: number): Pick<Product, "stoneType" | "stone" | "shape" 
 
 export const products: Product[] = catalog.map(([name, category, price, tag], index) => {
   const isSubasta = category === "Subasta";
-  const karat = index % 3 === 1 ? "14K" : "18K";
-  const metal: MetalColor = index % 5 === 2 ? "Rose Gold" : index % 3 === 2 ? "White Gold" : "Yellow Gold";
+  const karat = "18K" as const;
+  const metal: MetalColor = category === "Necklaces" ? "Yellow Gold" : index % 5 === 2 ? "Rose Gold" : index % 3 === 2 ? "White Gold" : "Yellow Gold";
   const stone = stoneFor(index);
   const primaryPhoto = photos[index % photos.length];
   const gallery = [primaryPhoto, photos[(index + 3) % photos.length], photos[(index + 6) % photos.length], photos[(index + 8) % photos.length]].map(id => img(id));
@@ -89,7 +89,7 @@ export const products: Product[] = catalog.map(([name, category, price, tag], in
     image: gallery[0],
     images: gallery,
     tag: tag || undefined,
-    material: `${karat} ${metal}`,
+    material: category === "Necklaces" ? "18K Japan Gold" : `${karat} ${metal}`,
     karat,
     metal,
     ...stone,
