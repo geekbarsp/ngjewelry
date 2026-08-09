@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const serif = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
-const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
+const serif = Playfair_Display({ subsets: ["latin"], variable: "--font-serif", display: "swap", fallback: ["Georgia", "serif"], style: ["normal", "italic"] });
+const sans = Manrope({ subsets: ["latin"], variable: "--font-sans", display: "swap", fallback: ["Arial", "sans-serif"] });
 
 export const metadata: Metadata = {
   title: "Narciso Geronimo Jewelry | Fine Jewelry Philippines",
