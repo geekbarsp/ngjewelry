@@ -1,14 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Box, CalendarDays, Check, ChevronDown, Expand, Gem, Heart, Menu, PackageCheck, Rotate3D, Share2, ShieldCheck, Sparkles, X, ZoomIn } from "lucide-react";
+import { ArrowLeft, ArrowRight, Box, CalendarDays, Check, ChevronDown, Gem, Heart, Menu, PackageCheck, Share2, ShieldCheck, Sparkles, X, ZoomIn } from "lucide-react";
 import { useMemo, useState } from "react";
 import { peso, type Product } from "@/data/products";
-
-const JewelScene = dynamic(() => import("./jewel-scene"), { ssr: false, loading: () => <div className="model-loading">Preparing 3D view…</div> });
 
 export default function ProductDetail({ product, related }: { product: Product; related: Product[] }) {
   const [activeImage, setActiveImage] = useState(0);
@@ -72,11 +69,6 @@ export default function ProductDetail({ product, related }: { product: Product; 
       <div className="condition-heading"><p className="eyebrow">SUBASTA CONDITION REPORT</p><h2>Character,<br />clearly disclosed.</h2><span><Check /> {product.authenticity}</span></div>
       <div className="condition-copy"><h3>{product.condition}</h3><p>{product.provenance}</p><ul>{product.conditionNotes?.map(note => <li key={note}><Check />{note}</li>)}</ul><p className="condition-note">Close-up gallery images form part of this report. We welcome requests for additional photographs or a live video inspection before reservation.</p><a className="btn outline" href="https://www.facebook.com/narciso.geronimo.jewels" target="_blank" rel="noreferrer">Inquire on Messenger <ArrowRight /></a></div>
       {product.restoration && <div className="restoration"><article><div><Image src={product.restoration.before} alt={`${product.name} before conservation`} fill sizes="50vw" /></div><span>Before</span></article><article><div><Image src={product.restoration.after} alt={`${product.name} after conservation`} fill sizes="50vw" /></div><span>After gentle conservation</span></article></div>}
-    </section>}
-
-    {product.featured && <section className="product-3d">
-      <div className="product-3d-copy"><p className="eyebrow">INTERACTIVE SIGNATURE VIEW</p><h2>See it from<br />every angle.</h2><p>Drag to rotate and scroll to zoom. This lightweight interactive study is loaded only when you reach it, preserving the speed of the product page.</p><span><Rotate3D /> Drag to rotate</span><span><Expand /> Controlled zoom</span><span><Gem /> Reflective gold study</span></div>
-      <div className="product-model"><JewelScene /><div className="model-orbit" /><small>Interactive 3D study · representation</small></div>
     </section>}
 
     <section className="product-care-grid">

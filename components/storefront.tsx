@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
@@ -10,7 +9,6 @@ import { peso, products, type Product } from "@/data/products";
 import CatalogExperience from "./catalog-experience";
 import SearchExperience from "./search-experience";
 
-const JewelScene=dynamic(()=>import("./jewel-scene"),{ssr:false});
 const reveal={hidden:{opacity:0,y:48},show:{opacity:1,y:0,transition:{duration:.85,ease:"easeOut" as const}}};
 
 export type StorefrontView = "home" | "shop" | "collections" | "subasta" | "about" | "services";
@@ -34,7 +32,7 @@ export default function Storefront({view="home"}:{view?:StorefrontView}){
         <p className="eyebrow">FINE JEWELRY · CABANATUAN CITY</p><h1>Made for your<br/><em>forever moments.</em></h1><p className="lede">Timeless elegance, crafted to be remembered. Discover fine jewelry shaped by Filipino artistry.</p>
         <div className="hero-actions"><a className="btn dark" href="/shop">Shop collection <ArrowRight/></a><a className="text-link" href="/about">Discover our story <ArrowRight/></a></div>
       </motion.div>
-      <div className="scene" aria-hidden="true">{!reduced&&<JewelScene/>}<div className="scene-orbit"><i/><i/><i/></div></div><div className="hero-detail"><span>Signature piece</span><b>Luna · 18K gold</b></div><a className="scroll-cue" href="#collections"><span/>Scroll to discover</a>
+      <div className="hero-detail"><span>Signature piece</span><b>Luna · 18K gold</b></div><a className="scroll-cue" href="#collections"><span/>Scroll to discover</a>
     </section>
     <TrustBar/>
     <motion.section className="section collections" id="collections" initial="hidden" whileInView="show" viewport={{once:true,amount:.12}} variants={reveal}><SectionHead kicker="The collection" title="Jewelry for every chapter" copy="Designed to live with you, and made to be passed on."/>
