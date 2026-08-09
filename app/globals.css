@@ -66,8 +66,14 @@ h1,h2,h3{font-weight:500;letter-spacing:-.025em}
 .hero h1{font-size:clamp(56px,6.4vw,96px);line-height:.94;letter-spacing:-.035em}
 .hero h1 em{font-weight:500}
 .hero .lede{font-family:var(--font-sans),Arial,sans-serif;font-size:clamp(15px,1.25vw,18px);line-height:1.75;max-width:540px}
-.story-copy h2{font-size:clamp(46px,5.3vw,76px);line-height:.98;letter-spacing:-.03em}
-.story-copy>p:not(.eyebrow){font-family:var(--font-sans),Arial,sans-serif;font-size:15px;line-height:1.8}
+.story-copy h2{font-size:clamp(46px,5.3vw,76px);line-height:.98;letter-spacing:-.03em;margin:0 0 34px}
+.story-copy>p:not(.eyebrow){font-family:var(--font-sans),Arial,sans-serif;font-size:15px;line-height:1.8;margin:0 0 38px}
+.story-copy .btn{margin-top:2px}
 .eyebrow,.btn,.text-link{font-family:var(--font-sans),Arial,sans-serif}
 .hero .scroll-cue{left:auto;right:clamp(22px,5vw,70px);transform:none;align-items:flex-end}
+.trust-hub>div:nth-child(2){grid-template-columns:repeat(2,1fr)}
+.product-message,.catalog-message{margin-top:14px;min-height:38px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px;font:700 8px var(--font-sans),Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;transition:.25s}
+.product-message:hover,.catalog-message:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.product-message svg,.catalog-message svg{width:14px;height:14px}
+.catalog-results article>.catalog-message{display:flex}
 @media(max-width:800px){.hero-copy{width:auto}.hero h1{font-size:clamp(49px,12vw,64px);line-height:.95}.hero .lede{font-size:16px;line-height:1.65}.story-copy h2{font-size:clamp(45px,11vw,62px)}}

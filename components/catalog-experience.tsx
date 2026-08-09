@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, Heart, SlidersHorizontal, X } from "lucide-react";
+import { Check, ChevronDown, Heart, MessageCircle, SlidersHorizontal, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { peso, products } from "@/data/products";
 
@@ -68,7 +68,7 @@ export default function CatalogExperience({ subasta = false }: { subasta?: boole
     <div className="catalog-layout"><aside>{sidebar}</aside><motion.div layout className="catalog-results">{visible.map(product => <motion.article layout key={product.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <Link href={`/product/${product.slug}`} className="catalog-image"><Image src={product.image} alt={product.name} fill sizes="(max-width: 700px) 50vw, 28vw" />{product.tag && <span>{product.tag}</span>}<b>View details</b></Link>
       <button className={liked.includes(product.id) ? "catalog-heart liked" : "catalog-heart"} onClick={() => setLiked(current => current.includes(product.id) ? current.filter(id => id !== product.id) : [...current, product.id])}><Heart /></button>
-      <p>{product.material} · {product.stoneType}</p><Link href={`/product/${product.slug}`}><h3>{product.name}</h3></Link><div><b>{peso(product.price)}</b>{product.oldPrice && <del>{peso(product.oldPrice)}</del>}</div><small>{product.availability}</small>
+      <p>{product.material} · {product.stoneType}</p><Link href={`/product/${product.slug}`}><h3>{product.name}</h3></Link><div><b>{peso(product.price)}</b>{product.oldPrice && <del>{peso(product.oldPrice)}</del>}</div><small>{product.availability}</small><a className="catalog-message" href="https://m.me/narciso.geronimo.jewels" target="_blank" rel="noreferrer" aria-label={`Message us about ${product.name}`}><MessageCircle/> Message us</a>
     </motion.article>) }{visible.length === 0 && <div className="catalog-empty"><h3>No exact matches.</h3><p>Try widening your price, material, or stone preferences.</p><button className="btn dark" onClick={() => setFilters(emptyFilters)}>Reset filters</button></div>}</motion.div></div>
     <AnimatePresence>{filtersOpen && <><motion.div className="filter-backdrop" onClick={() => setFiltersOpen(false)} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} /><motion.div className="mobile-filter-drawer" initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}>{sidebar}</motion.div></>}</AnimatePresence>
   </section>;
