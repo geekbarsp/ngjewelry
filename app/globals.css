@@ -71,6 +71,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.025em}
 .story-copy .btn{margin-top:2px}
 .eyebrow,.btn,.text-link{font-family:var(--font-sans),Arial,sans-serif}
 .hero .scroll-cue{left:auto;right:clamp(22px,5vw,70px);transform:none;align-items:flex-end}
+.collection{display:block;width:100%}
 .trust-hub>div:nth-child(2){grid-template-columns:repeat(2,1fr)}
 .product-detail-message{min-height:48px;border:1px solid var(--ink);border-top:0;display:flex;align-items:center;justify-content:center;gap:10px;font:700 9px var(--font-sans),Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;transition:.25s}
 .product-detail-message:hover{background:#f4f0e5;color:#725d2d}
