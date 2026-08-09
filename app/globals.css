@@ -77,3 +77,4 @@ h1,h2,h3{font-weight:500;letter-spacing:-.025em}
 .product-detail-message:hover{background:#f4f0e5;color:#725d2d}
 .product-detail-message svg{width:16px;height:16px}
 @media(max-width:800px){.hero-copy{width:auto}.hero h1{font-size:clamp(49px,12vw,64px);line-height:.95}.hero .lede{font-size:16px;line-height:1.65}.story-copy h2{font-size:clamp(45px,11vw,62px)}}
+@media(min-width:901px){.gift-options.five-step{grid-template-columns:repeat(4,1fr)}}
