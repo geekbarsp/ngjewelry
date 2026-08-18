@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Gem } from "lucide-react";
-import { signIn, signUp } from "./actions";
+import { requestOtp } from "./actions";
 
 export const metadata: Metadata = { title: "Account | Narciso Geronimo Jewelry", description: "Sign in or create your Narciso Geronimo Jewelry account." };
 
@@ -21,15 +21,15 @@ export default async function AuthPage({ searchParams }: { searchParams: Promise
       <div className="auth-card">
         <p className="eyebrow">{isSignUp ? "BECOME A CLIENT" : "WELCOME BACK"}</p>
         <h2>{isSignUp ? "Create your account." : "Sign in to your account."}</h2>
-        <p className="auth-intro">{isSignUp ? "Create an account for a more personal jewelry experience." : "Enter your details to continue to your private account."}</p>
+        <p className="auth-intro">{isSignUp ? "Create an account using a secure code sent to your email." : "We’ll email you a six-digit code. No password needed."}</p>
         <div className="auth-tabs" aria-label="Account options"><Link className={!isSignUp ? "active" : ""} href="/auth?mode=signin">Sign in</Link><Link className={isSignUp ? "active" : ""} href="/auth?mode=signup">Sign up</Link></div>
         {params.error && <p className="auth-alert error" role="alert">{params.error}</p>}
         {params.message && <p className="auth-alert success" role="status">{params.message}</p>}
-        <form action={isSignUp ? signUp : signIn} className="auth-form">
+        <form action={requestOtp} className="auth-form">
+          <input name="mode" type="hidden" value={isSignUp ? "signup" : "signin"} />
           {isSignUp && <label>Full name<input name="fullName" type="text" autoComplete="name" required /></label>}
           <label>Email address<input name="email" type="email" autoComplete="email" required /></label>
-          <label>Password<input name="password" type="password" autoComplete={isSignUp ? "new-password" : "current-password"} minLength={8} required />{isSignUp && <small>At least 8 characters</small>}</label>
-          <button className="btn dark" type="submit">{isSignUp ? "Create account" : "Sign in"}</button>
+          <button className="btn dark" type="submit">Send six-digit code</button>
         </form>
         <p className="auth-switch">{isSignUp ? "Already have an account?" : "New to Narciso Geronimo?"} <Link href={isSignUp ? "/auth?mode=signin" : "/auth?mode=signup"}>{isSignUp ? "Sign in" : "Create one"}</Link></p>
       </div>
